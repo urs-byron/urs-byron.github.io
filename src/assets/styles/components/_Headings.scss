@@ -1,0 +1,10 @@
+@use '../abstracts';
+
+@mixin main-heading($h, $style) {
+    .main-heading-#{$h} {
+        font-family: 'Plus Jakarta Sans #{$style}';
+        color: abstracts.$c-yellow;
+
+        @content;
+    }
+}

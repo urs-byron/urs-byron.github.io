@@ -1,0 +1,75 @@
+import Acquiro from '../../../assets/icons/Acquiro.svg?react'
+import AWS from '../../../assets/icons/AWS.svg?react'
+import Byron from '../../../assets/icons/Byron.svg?react'
+import CSS3 from '../../../assets/icons/CSS.svg?react'
+import DynamoDB from '../../../assets/icons/DynamoDB.svg?react'
+import ESLint from '../../../assets/icons/ESLint.svg?react'
+import EllipsisLoader from '../../../assets/icons/EllipsisLoader.svg?react'
+import Express from '../../../assets/icons/Express.svg?react'
+import Facebook from '../../../assets/icons/Facebook.svg?react'
+import FullStack from '../../../assets/icons/Fullstack.svg?react'
+import GitHub from '../../../assets/icons/GitHub.svg?react'
+import Google from '../../../assets/icons/Google.svg?react'
+import HCP from '../../../assets/icons/HCP.svg?react'
+import HTML5 from '../../../assets/icons/HTML.svg?react'
+import JavaScript from '../../../assets/icons/JavaScript.svg?react'
+import Jest from '../../../assets/icons/Jest.svg?react'
+import Knex from '../../../assets/icons/Knex.js.svg?react'
+import Linkedin from '../../../assets/icons/Linkedin.svg?react'
+import Mail from '../../../assets/icons/Mail.svg?react'
+import MongoDB from '../../../assets/icons/MongoDB.svg?react'
+import Node from '../../../assets/icons/Node.js.svg?react'
+import NXT from '../../../assets/icons/NXT.svg?react'
+import Okta from '../../../assets/icons/Okta.svg?react'
+import Passport from '../../../assets/icons/Passport.js.svg?react'
+import PostgresSQL from '../../../assets/icons/PostgresSQL.svg?react'
+import React from '../../../assets/icons/React.svg?react'
+import ReactQuery from '../../../assets/icons/ReactQuery.svg?react'
+import Redux from '../../../assets/icons/Redux.svg?react'
+import Sass from '../../../assets/icons/Sass.svg?react'
+import SpinLoader from '../../../assets/icons/SpinLoader.svg?react'
+import Swagger from '../../../assets/icons/Swagger.svg?react'
+import TypeScript from '../../../assets/icons/TypeScript.svg?react'
+import Tailwind from '../../../assets/icons/Tailwind.svg?react'
+import Viber from '../../../assets/icons/Viber.svg?react'
+import Vite from '../../../assets/icons/Vite.svg?react'
+import VSCode from '../../../assets/icons/VSCode.svg?react'
+
+export const icons = {
+    Acquiro: <Acquiro fill="white" />,
+    AWS: <AWS fill="white" />,
+    Byron: <Byron fill="white" />,
+    CSS3: <CSS3 fill="white" />,
+    DynamoDB: <DynamoDB fill="white" />,
+    ESLint: <ESLint fill="white" />,
+    EllipsisLoader: <EllipsisLoader fill="white" />,
+    Express: <Express fill="white" />,
+    Facebook: <Facebook fill="white" />,
+    FullStack: <FullStack fill="white" />,
+    Google: <Google fill="white" />,
+    GitHub: <GitHub fill="white" />,
+    HCP: <HCP fill="white" />,
+    HTML5: <HTML5 fill="white" />,
+    JavaScript: <JavaScript fill="white" />,
+    Jest: <Jest fill="white" />,
+    Knex: <Knex fill="white" />,
+    Linkedin: <Linkedin fill="white" />,
+    Mail: <Mail fill="white" />,
+    MongoDB: <MongoDB fill="white" />,
+    Node: <Node fill="white" />,
+    NXT: <NXT fill="white" />,
+    Okta: <Okta fill="white" />,
+    Passport: <Passport fill="white" />,
+    PostgresSQL: <PostgresSQL fill="white" />,
+    React: <React fill="white" />,
+    ReactQuery: <ReactQuery fill="white" />,
+    Redux: <Redux fill="white" />,
+    Sass: <Sass fill="white" />,
+    SpinLoader: <SpinLoader fill="white" />,
+    Swagger: <Swagger fill="white" />,
+    TypeScript: <TypeScript fill="white" />,
+    Tailwind: <Tailwind fill="white" />,
+    Viber: <Viber fill="white" />,
+    Vite: <Vite fill="white" />,
+    VSCode: <VSCode fill="white" />,
+} as const

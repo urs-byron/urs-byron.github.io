@@ -1,0 +1,426 @@
+@use '../abstracts';
+@use '../base';
+@use '../components';
+
+.main-header {
+    width: 100vw;
+    padding: 10px 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20pt;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    transform: translateY(0%);
+
+    background-color: #0a5bc4;
+
+    > * {
+        align-self: center;
+
+        color: white;
+        font-weight: 300;
+
+        &:last-child {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: end;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 19pt;
+            text-align: right;
+        }
+    }
+
+    @include abstracts.mq-md() {
+        padding: 0 60px;
+        transform: translateY(-100%);
+        font-size: 30pt;
+    }
+}
+
+@mixin slide-svgs {
+    &[aria-label='AWS'] {
+        background-color: #252f3e;
+
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='CSS3'] {
+        background-color: #2965f1;
+        // animation: indent 15s 0s linear infinite;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='DynamoDB'] {
+        background-color: #4a5eef;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='ESLint'] {
+        background-color: #4b32c3;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Express.js'] {
+        background-color: black;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='GitHub'] {
+        background-color: #181616;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='HTML5'] {
+        background-color: #e34c26;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='JavaScript'] {
+        background-color: #f0db4f;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Jest'] {
+        background-color: #99425b;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Knex.js'] {
+        background-color: #e16426;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Mail'] {
+        background-color: #50d9ff;
+        svg {
+            fill: #00ed64;
+        }
+    }
+    &[aria-label='MongoDB'] {
+        background-color: #001e2b;
+        svg {
+            fill: #00ed64;
+        }
+    }
+    &[aria-label='Node.js'] {
+        background-color: #83cd29;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Okta'] {
+        background-color: black;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Passport.js'] {
+        background-color: black;
+    }
+    &[aria-label='PostgresSQL'] {
+        background-color: #336791;
+    }
+    &[aria-label='React'] {
+        background-color: #61dafb;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Redux'] {
+        background-color: #764abc;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Sass'] {
+        background-color: #cb6699;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='Swagger'] {
+        background-color: #85ea2d;
+    }
+    &[aria-label='Tailwind'] {
+        background-color: #38bdf8;
+        svg {
+            fill: white;
+        }
+    }
+    &[aria-label='TypeScript'] {
+        background-color: #007acc;
+    }
+    &[aria-label='Vite'] {
+        background-color: #122029;
+    }
+    &[aria-label='VSCode'] {
+        background-color: #68217a;
+        svg {
+            fill: white;
+        }
+    }
+}
+
+// tlu stands for Tile Unit Size
+$tlu: 57.5px;
+
+@function size-tile($multiplier) {
+    @return $multiplier * $tlu + (($multiplier - 1) * 10px);
+}
+
+@mixin tile-group($height, $width) {
+    &.tile-group {
+        --h3-margin-bot: 20px;
+
+        height: calc($height + 34px + var(--h3-margin-bot) + 15px);
+        width: $width;
+
+        h3 {
+            margin-bottom: var(--h3-margin-bot);
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: base.$font-sz-h3;
+            font-weight: 300;
+
+            color: white;
+        }
+        .tiles {
+            display: grid;
+            justify-content: flex-start;
+
+            > * {
+                grid-area: 1/1;
+            }
+
+            @content;
+        }
+
+        @include abstracts.mq-md() {
+            --h3-margin-bot: 10px;
+        }
+    }
+}
+
+.tile-groups-container {
+    --mr: 0;
+
+    height: 100vh;
+    padding: 20px 0;
+
+    scroll-behavior: smooth;
+
+    white-space: nowrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .tile-groups {
+        height: max-content;
+        display: flex;
+
+        flex-flow: column nowrap;
+        padding-left: 30px;
+
+        // margin right except for last element
+        > *:not(:last-child) {
+            margin-right: var(--mr);
+        }
+    }
+
+    @include abstracts.mq-md() {
+        --mr: 50px;
+
+        height: auto;
+        width: 100vw;
+        padding: 0 60px;
+
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        .tile-groups {
+            height: auto;
+            width: max-content;
+            padding-left: 0;
+            flex-flow: row nowrap;
+
+            align-items: stretch;
+        }
+    }
+}
+
+.tile-groups-container-mover {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+
+    cursor: pointer;
+
+    svg {
+        height: 20px;
+        width: 20px;
+    }
+
+    &.mover-x {
+        display: none;
+    }
+
+    @include abstracts.mq-md() {
+        bottom: 60px;
+        right: 60px;
+
+        svg {
+            height: 30px;
+            width: 30px;
+        }
+
+        &.mover-x {
+            display: inline-block;
+        }
+        &.mover-y {
+            display: none;
+        }
+    }
+}
+
+.about-me {
+    @include tile-group(calc(size-tile(5)), calc(size-tile(4))) {
+        .about-me-image-set {
+            transform: translateY(10px + size-tile(2));
+        }
+        .about-me-linkedin {
+            transform: translate(0, size-tile(4) + 10px);
+        }
+        .about-me-google {
+            transform: translate(size-tile(1) + 10px, size-tile(4) + 10px);
+        }
+        .about-me-viber {
+            transform: translate(size-tile(2) + 10px, size-tile(4) + 10px);
+        }
+        .about-me-mail {
+            transform: translate(size-tile(3) + 10px, size-tile(4) + 10px);
+        }
+    }
+}
+
+.tech-stack {
+    @include tile-group(calc(size-tile(6)), calc(size-tile(4))) {
+        .tech-stack-express {
+            transform: translate(0, 10px + size-tile(2));
+        }
+        .tech-stack-jest {
+            transform: translate(10px + size-tile(1), 10px + size-tile(2));
+        }
+
+        .tech-stack-swagger {
+            transform: translate(10px + size-tile(0), 10px + size-tile(3));
+        }
+        .tech-stack-pg {
+            transform: translate(10px + size-tile(1), 10px + size-tile(3));
+        }
+
+        .tech-stack-react {
+            transform: translate(10px + size-tile(2), 0);
+        }
+        .tech-stack-sass {
+            transform: translate(10px + size-tile(2), 10px + size-tile(2));
+        }
+        .tech-stack-redux {
+            transform: translate(10px + size-tile(3), 10px + size-tile(2));
+        }
+        .tech-stack-react-query {
+            transform: translate(10px + size-tile(2), 10px + size-tile(3));
+        }
+        .tech-stack-vite {
+            transform: translate(10px + size-tile(3), 10px + size-tile(3));
+        }
+        .tech-stack-aws {
+            transform: translate(0, 10px + size-tile(4));
+        }
+        .tech-stack-typescript {
+            transform: translate(10px + size-tile(2), 10px + size-tile(4));
+        }
+    }
+}
+
+.exp {
+    @include tile-group(calc(size-tile(6)), calc(size-tile(4))) {
+        .exp-2023 {
+            transform: translateY(10px + size-tile(2));
+        }
+        .exp-info {
+            transform: translateY(10px + size-tile(2));
+        }
+        .exp-news-set {
+            transform: translate(0, size-tile(4) + 10px);
+        }
+    }
+}
+
+.projects {
+    @include tile-group(calc(size-tile(12)), calc(size-tile(4))) {
+        .tech-stack-nxt {
+            transform: translate(0, size-tile(2) + 10px);
+        }
+        .project-nxt-info {
+            transform: translate(0, size-tile(4) + 10px);
+        }
+
+        .project-nxt-react {
+            transform: translate(size-tile(2) + 10px, size-tile(2) + 10px);
+        }
+        .project-nxt-aws {
+            transform: translate(size-tile(3) + 10px, size-tile(2) + 10px);
+        }
+        .project-nxt-node {
+            transform: translate(size-tile(2) + 10px, size-tile(3) + 10px);
+        }
+        .project-nxt-postgresql {
+            transform: translate(size-tile(3) + 10px, size-tile(3) + 10px);
+        }
+
+        .project-hcp-iconrect {
+            transform: translate(0, size-tile(6) + 10px);
+        }
+        .project-hcp-image-set {
+            transform: translate(0, size-tile(8) + 10px);
+        }
+        .project-hcp-info {
+            transform: translate(0, size-tile(10) + 10px);
+        }
+    }
+    @include abstracts.mq-md() {
+        @include tile-group(calc(size-tile(6)), calc(size-tile(8))) {
+            .project-hcp-iconrect {
+                transform: translate(size-tile(6) + 10px, 0);
+            }
+            .project-hcp-image-set {
+                transform: translate(size-tile(4) + 10px, size-tile(2) + 10px);
+            }
+            .project-hcp-info {
+                transform: translate(size-tile(4) + 10px, size-tile(4) + 10px);
+            }
+        }
+    }
+}

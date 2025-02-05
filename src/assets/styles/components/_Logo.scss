@@ -1,0 +1,42 @@
+@use 'sass:math';
+@use '../abstracts';
+
+@mixin main-logo($height: 40px, $color: abstracts.$c-white) {
+    height: $height;
+    min-width: calc(2.5 * $height);
+    min-width: calc(2 * $height);
+
+    transition:
+        height 0.2s,
+        width 0.2s;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    gap: 5%;
+
+    background-image: url('data:image/svg+xml;utf8,<svg id="eAJmNWq3LBw1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" project-id="703c141e9fd7458db6826d4c5b38a426" export-id="54a97036fd084667b44aab384ec6b0f0" cached="false"><path stroke="black" fill="%23808080" d="M102.5,226L55.2,202.8L129,165.928414v-18.254521L17.066228,202.7L129,257.940549v-18.717662L118.2,234.1L197.5,80l47.3,23.3-71.4,35.138721v18.778022L282.8,103.2L173.4,49.127924v18.910543L181.8,71.9L102.5,226Z"/></svg>');
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @content;
+
+    span {
+        color: rgba($color: $color, $alpha: 1);
+
+        &:first-child,
+        &:last-child {
+            font-family: 'Cairo Play normal normal';
+            transition:
+                font-size abstracts.$duration-g,
+                line-height abstracts.$duration-g,
+                letter-spacing abstracts.$duration-g;
+
+            font-size: calc(0.75 * $height);
+            line-height: calc(0.5 * $height);
+            text-transform: uppercase;
+            letter-spacing: calc($height / -10);
+        }
+    }
+}

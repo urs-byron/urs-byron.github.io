@@ -1,0 +1,25 @@
+@use '../abstracts';
+
+$font-sz-heading: 48px;
+$font-sz-heading-tab: 48px;
+$font-sz-title-bg: 30px;
+$font-sz-title-md: 20px;
+$font-sz-title-sm: 18px;
+$font-sz-desc-bg: 20px;
+$font-sz-desc-md: 16px;
+$font-sz-desc-sm: 12.5px;
+$font-sz-detail: 14px;
+$font-sz-detail-tab: 12px;
+
+$font-sz-h1: 19pt;
+$font-sz-h2: 48pt;
+$font-sz-h3: 19pt;
+$font-sz-mark: 16pt;
+$font-sz-desc: 9pt;
+
+@include abstracts.declare-variable-font-face(
+    'SegoeUI',
+    normal,
+    100 900,
+    'ttf'
+);

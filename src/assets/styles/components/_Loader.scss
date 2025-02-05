@@ -1,0 +1,49 @@
+@use '../abstracts';
+
+@keyframes pixel_fade_loader_05 {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes pixel_fade_loader_1 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.pixel_fade_loader {
+    height: 100%;
+    width: 100%;
+
+    border-collapse: collapse;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: abstracts.$z-main-loader;
+
+    background: rgba(0, 0, 0, 0);
+
+    td {
+        background-color: black;
+        &[loader_pixel='1'] {
+            opacity: 1;
+
+            animation: pixel_fade_loader_1 1.5s ease-in-out forwards;
+        }
+        &[loader_pixel='0'] {
+            opacity: 0.5;
+            animation: pixel_fade_loader_05 1s ease-in forwards;
+        }
+        &[loader_pixel='2'] {
+            opacity: 0;
+        }
+    }
+}

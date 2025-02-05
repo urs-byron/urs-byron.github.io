@@ -1,0 +1,110 @@
+@use 'sass:map';
+
+@use './variables';
+
+@mixin mq-sm {
+    @media (min-width: map.get(variables.$breakpoints, 'small')) {
+        @content;
+    }
+}
+@mixin mq-md {
+    @media (min-width: map.get(variables.$breakpoints, 'medium')) {
+        @content;
+    }
+}
+@mixin mq-bg {
+    @media (min-width: map.get(variables.$breakpoints, 'big')) {
+        @content;
+    }
+}
+@mixin mq-lg {
+    @media (min-width: map.get(variables.$breakpoints, 'large')) {
+        @content;
+    }
+}
+
+@mixin transition-none($rule) {
+    transition: $rule 0s;
+}
+@mixin transition-gen($rule, $duration: 0.2s) {
+    transition: $rule $duration;
+}
+
+@mixin no-select {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:focus {
+        outline: none !important;
+    }
+}
+
+@mixin declare-font-face($family, $weight, $style, $format) {
+    $font-family: '#{$family} #{$weight} #{$style}';
+
+    $src-url: null;
+    $src-format: null;
+
+    $src: local($font-family),
+        url('assets/fonts/#{$family}/#{$font-family}.#{$format}');
+
+    @if $format == 'otf' {
+        $src-format: 'opentype';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'ttf' {
+        $src-format: 'truetype';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'woff' {
+        $src-format: 'woff';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'woff2' {
+        $src-format: 'woff2';
+        $src-url: $src format(#{$src-format});
+    } @else {
+        $src-url: $src;
+    }
+
+    @font-face {
+        font-family: $font-family;
+        font-weight: $weight;
+        font-style: $style;
+        src: $src-url;
+    }
+}
+
+@mixin declare-variable-font-face($family, $style, $weight-range, $format) {
+    $font-family: '#{$family}-#{$style}';
+
+    $src-url: null;
+    $src-format: null;
+
+    $src: local($font-family), url('assets/fonts/#{$font-family}.#{$format}');
+
+    @if $format == 'otf' {
+        $src-format: 'opentype';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'ttf' {
+        $src-format: 'truetype';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'woff' {
+        $src-format: 'woff';
+        $src-url: $src format(#{$src-format});
+    } @else if $format == 'woff2' {
+        $src-format: 'woff2';
+        $src-url: $src format(#{$src-format});
+    } @else {
+        $src-url: $src;
+    }
+
+    @font-face {
+        font-family: $font-family;
+        font-style: $style;
+        font-weight: $weight-range;
+        src: $src-url;
+    }
+}

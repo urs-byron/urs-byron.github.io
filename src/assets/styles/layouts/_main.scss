@@ -1,0 +1,36 @@
+@use '../abstracts';
+
+.main-layout {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    color: white;
+
+    .main-component {
+        .main-component-loader {
+            height: 100vh;
+            width: inherit;
+
+            display: flex;
+            flex-flow: column nowrap;
+
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            svg {
+                height: 40px;
+                width: 40px;
+            }
+        }
+    }
+
+    @include abstracts.mq-md() {
+        align-content: center;
+    }
+}

@@ -1,0 +1,82 @@
+@use 'sass:map';
+
+//
+// media queries
+//
+
+$breakpoints: (
+    'small': 375px,
+    'medium': 568px,
+    'big': 767px,
+    'large': 1440px,
+);
+
+//
+// font-sizes
+//
+$fs-2-bg: 40px;
+$fs-2-md: 30px;
+$fs-2-sm: 16px;
+
+//
+// z index
+//
+
+$z-base: 0;
+$z-stack: (
+    'above': 1,
+    'below': -1,
+);
+@function isStacked($stack, $origin) {
+    @return map.get($z-stack, $stack) + $origin;
+}
+
+// main layout
+
+// main component
+$z-main-component: $z-base;
+
+// main layout - nav
+$z-main-nav-menu: isStacked('above', $z-main-component);
+$z-main-nav: isStacked('above', $z-main-nav-menu);
+$z-main-nav-header: isStacked('above', $z-main-nav);
+$z-main-nav-menu-logo: #{$z-main-nav-header};
+
+// main layout - loader
+$z-main-loader: isStacked('above', $z-main-nav-header);
+
+// main layout - footer
+$z-main-footer: $z-base;
+$z-main-footer-link: isStacked('above', $z-main-footer);
+$z-main-footer-link-underline: isStacked('above', $z-main-footer);
+
+//
+// durations
+//
+
+$duration-g: 0.2s;
+
+//
+// dimensions
+//
+
+$w-max: 1440px;
+$w-min: 390px;
+
+$h-nav-bar: 98px;
+$h-nav-bar-tab: 60px;
+$h-footer: 56px;
+
+$pad-gen-sm: 12.5px;
+$pad-gen-md: 20px;
+$pad-gen-bg: 30px;
+
+//
+// colors
+//
+
+$c-black: #18191f;
+$c-white: #ffffff;
+$c-yellow: #f5ff6c;
+$c-orange: #f15f3c;
+$c-grey: #808080;

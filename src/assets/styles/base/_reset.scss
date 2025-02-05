@@ -1,0 +1,68 @@
+*:where(:not(audio, canvas, iframe, img, svg, video):not(svg *, symbol)) {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+
+    box-sizing: border-box;
+
+    background-color: transparent;
+
+    text-decoration: none;
+}
+
+body.stop-transitions * {
+    transition: none !important;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    background-color: #0a5bc4;
+}
+
+button {
+    all: unset;
+
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    appearance: none;
+    -webkit-appearance: none;
+
+    &:-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    &:focus:not(:focus-visible),
+    &:focus:not(:-moz-focusring) {
+        outline: none;
+    }
+}
+
+ul,
+ol,
+dl,
+menu {
+    list-style-type: none;
+}
