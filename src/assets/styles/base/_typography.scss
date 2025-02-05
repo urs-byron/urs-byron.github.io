@@ -16,10 +16,3 @@ $font-sz-h2: 48pt;
 $font-sz-h3: 19pt;
 $font-sz-mark: 16pt;
 $font-sz-desc: 9pt;
-
-@include abstracts.declare-variable-font-face(
-    'SegoeUI',
-    normal,
-    100 900,
-    'ttf'
-);
