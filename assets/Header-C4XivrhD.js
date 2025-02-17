@@ -1,1 +1,0 @@
-import{j as e}from"./index-DU7XbXWh.js";function s(){return e.jsxs("header",{className:"main-header",children:[e.jsx("h2",{children:"Hello!"}),e.jsx("h3",{children:"I'm Byron"})]})}export{s as default};
